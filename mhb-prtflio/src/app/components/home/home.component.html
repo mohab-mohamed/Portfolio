@@ -6,19 +6,19 @@
           <div (click)="firstClick()" class="icon-container"><img id="maze" src="assets/maze.png" /></div>
           <div  (click)="firstClick()" *ngIf="!firstOpen" class="right-arrow-container"><img id="right" src="assets/right-caret.png" /></div>
           <div  (click)="firstClick()" *ngIf="firstOpen" class="left-arrow-container"><img id="left" src="assets/left-caret.png" /></div>
-          <div class="caption-container"> <span *ngIf="firstCaption" [@myAnimation] class="caption">Pathfinding Visualizer (Angular)</span> </div>
+          <div class="caption-container"> <span *ngIf="firstCaption" [@myAnimation] class="caption" data-toggle="modal" data-target="#firstProjectModal" >Pathfinding Visualizer (Angular)</span> </div>
         </div>
         <div class="second-project">
           <div (click)="secondClick()" class="icon-container"><img id="scheduler" src="assets/scheduler.png" /> </div>
           <div  (click)="secondClick()" *ngIf="!secondOpen" class="right-arrow-container"><img id="right" src="assets/right-caret.png" /></div>
           <div  (click)="secondClick()" *ngIf="secondOpen" class="left-arrow-container"><img id="left" src="assets/left-caret.png" /></div>
-          <div class="caption-container"> <span *ngIf="secondCaption" [@myAnimation] class="caption">Scheduler (MERN)</span> </div>
+          <div class="caption-container"> <span *ngIf="secondCaption" [@myAnimation] class="caption" data-toggle="modal" data-target="#secondProjectModal">Scheduler (MERN)</span> </div>
         </div>
         <div class="third-project">
           <div (click)="thirdClick()" class="icon-container"><img id="travel" src="assets/travel.png" /></div>
           <div  (click)="thirdClick()" *ngIf="!thirdOpen" class="right-arrow-container"><img id="right" src="assets/right-caret.png" /></div>
           <div  (click)="thirdClick()" *ngIf="thirdOpen" class="left-arrow-container"><img id="left" src="assets/left-caret.png" /></div>
-          <div class="caption-container">  <span *ngIf="thirdCaption" [@myAnimation] class="caption">Travel Reservation Site (MEANestJS) </span> </div>
+          <div class="caption-container">  <span *ngIf="thirdCaption" [@myAnimation] class="caption"  data-toggle="modal" data-target="#thirdProjectModal">Travel Reservation Site (MEANestJS) </span> </div>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
     <div class="col-9 mid-col">
       <h1 id="name">mohab</h1>
     </div>
-    <div class="col-3 right-col">
+    <div routerLink="/about" class="col-3 right-col">
       <div class="right-container">
         <span> A </span>
         <span> B </span>
@@ -48,21 +48,35 @@
           <div (click)="fourthClick()" class="icon-container"><img id="stock" src="assets/stock.png" /></div>
           <div  (click)="fourthClick()" *ngIf="!fourthOpen" class="right-arrow-container"><img id="right" src="assets/right-caret.png" /></div>
           <div  (click)="fourthClick()" *ngIf="fourthOpen" class="left-arrow-container"><img id="left" src="assets/left-caret.png" /></div>
-          <div class="caption-container"> <span *ngIf="fourthCaption" [@myAnimation] class="caption">Hidden Markov Model (HMM) based Stock Predictor (Python) </span>  </div>
+          <div class="caption-container"> <span *ngIf="fourthCaption" [@myAnimation] class="caption" data-toggle="modal" data-target="#fourthProjectModal">Hidden Markov Model (HMM) based Stock Predictor (Python) </span>  </div>
         </div>
         <div class="fifth-project">
           <div (click)="fifthClick()" class="icon-container"><img id="brain" src="assets/brain.png" /></div>
           <div  (click)="fifthClick()" *ngIf="!fifthOpen" class="right-arrow-container"><img id="right" src="assets/right-caret.png" /></div>
           <div  (click)="fifthClick()" *ngIf="fifthOpen" class="left-arrow-container"><img id="left" src="assets/left-caret.png" /></div>
-          <div class="caption-container">  <span *ngIf="fifthCaption" [@myAnimation] class="caption">Semantic Segmentation (PyTorch) </span> </div>
+          <div class="caption-container">  <span *ngIf="fifthCaption" [@myAnimation] class="caption" data-toggle="modal" data-target="#fifthProjectModal">Semantic Segmentation (PyTorch) </span> </div>
         </div>
         <div class="sixth-project">
           <div (click)="sixthClick()" class="icon-container"><img id="magnifying" src="assets/perceptron.png" /></div>
           <div  (click)="sixthClick()" *ngIf="!sixthOpen" class="right-arrow-container"><img id="right" src="assets/right-caret.png" /></div>
           <div  (click)="sixthClick()" *ngIf="sixthOpen" class="left-arrow-container"><img id="left" src="assets/left-caret.png" /></div>
-          <div class="caption-container">  <span *ngIf="sixthCaption" [@myAnimation] class="caption">Perceptron Neural Network (Python) </span> </div>
+          <div class="caption-container">  <span *ngIf="sixthCaption" [@myAnimation] class="caption" data-toggle="modal" data-target="#sixthProjectModal">Perceptron Neural Network (Python) </span> </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-project-modal  [webOnly]="true" modalId="firstProjectModal" carouselId="firstCarousel" projectTitle="A-Star Pathfinding Visualizer" [images]="firstProjectImages" [deployedLink]="firstDeployed" [githubRepo]="firstRepo" [description]="firstDescription"></app-project-modal>
+
+<app-project-modal [mobileOnly]="true" modalId="secondProjectModal" carouselId="secondCarousel" projectTitle="Scheduler (MERN)" [images]="secondProjectImages" [deployedLink]="secondDeployed" [githubRepo]="secondRepo" [description]="secondDescription"></app-project-modal>
+
+<app-project-modal modalId="thirdProjectModal" carouselId="thirdCarousel" projectTitle="Travel Reservation Site (MEANestJS)" [images]="thirdProjectImages" [githubRepo]="thirdRepo" [description]="thirdDescription"></app-project-modal>
+
+<app-project-modal modalId="fourthProjectModal" carouselId="fourthCarousel" projectTitle="Hidden Markov Model (HMM) based Stock Predictor (Python)" [images]="fourthProjectImages" [githubRepo]="fourthRepo" [description]="fourthDescription"></app-project-modal>
+
+<app-project-modal modalId="fifthProjectModal" carouselId="fifthCarousel" projectTitle="Semantic Segmentation (PyTorch)" [images]="fifthProjectImages" [githubRepo]="fifthRepo" [description]="fifthDescription"></app-project-modal>
+
+<app-project-modal modalId="sixthProjectModal" carouselId="sixthCarousel" projectTitle="Perceptron Neural Network (Python)" [images]="sixthProjectImages" [githubRepo]="sixthRepo" [description]="sixthDescription"></app-project-modal>
+
+<router-outlet></router-outlet>
